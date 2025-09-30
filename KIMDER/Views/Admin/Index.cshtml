@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Admin Paneli";
+}
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1><i class="fas fa-user-shield"></i> Admin Paneli</h1>
+        <p class="lead">İçerik Yönetim Sistemi</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center p-5">
+                    <div class="mb-4" style="font-size: 4rem; color: var(--primary-color);">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3 class="card-title mb-3">Haber Yönetimi</h3>
+                    <p class="card-text mb-4">
+                        Haberleri ekleyin, düzenleyin veya silin. Tüm haber işlemlerini buradan yönetebilirsiniz.
+                    </p>
+                    <a href="/Admin/NewsList" class="btn btn-primary btn-lg">
+                        <i class="fas fa-cog"></i> Haberleri Yönet
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body text-center p-5">
+                    <div class="mb-4" style="font-size: 4rem; color: var(--secondary-color);">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="card-title mb-3">Etkinlik Yönetimi</h3>
+                    <p class="card-text mb-4">
+                        Etkinlikleri ekleyin, düzenleyin veya silin. Tüm etkinlik işlemlerini buradan yönetebilirsiniz.
+                    </p>
+                    <a href="/Admin/EventsList" class="btn btn-primary btn-lg">
+                        <i class="fas fa-cog"></i> Etkinlikleri Yönet
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="mb-3"><i class="fas fa-info-circle"></i> Yönetim Bilgileri</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success"></i> 
+                            <strong>Haber Ekleme:</strong> Yeni haberler ekleyebilir, başlık, içerik ve görsel belirleyebilirsiniz.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success"></i> 
+                            <strong>Etkinlik Ekleme:</strong> Yeni etkinlikler oluşturabilir, tarih ve konum bilgilerini girebilirsiniz.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success"></i> 
+                            <strong>Düzenleme:</strong> Mevcut içerikleri istediğiniz zaman güncelleyebilirsiniz.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-check text-success"></i> 
+                            <strong>Silme:</strong> İstenmeyen içerikleri güvenli bir şekilde silebilirsiniz.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

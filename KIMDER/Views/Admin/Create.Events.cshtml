@@ -1,0 +1,91 @@
+@model KucukkoyIHL.Models.Event
+
+@{
+    ViewData["Title"] = "Yeni Etkinlik Ekle";
+}
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1><i class="fas fa-plus-circle"></i> Yeni Etkinlik Ekle</h1>
+        <p class="lead">Yeni bir etkinlik oluşturun</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card">
+                <div class="card-body p-4">
+                    <form asp-action="CreateEvent" method="post">
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">
+                                <i class="fas fa-heading"></i> Etkinlik Adı
+                            </label>
+                            <input asp-for="Title" class="form-control" placeholder="Etkinlik adını girin" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">
+                                <i class="fas fa-align-left"></i> Açıklama
+                            </label>
+                            <textarea asp-for="Description" class="form-control" rows="6" placeholder="Etkinlik açıklamasını girin"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="EventDate" class="form-label">
+                                    <i class="fas fa-calendar"></i> Etkinlik Tarihi
+                                </label>
+                                <input asp-for="EventDate" class="form-control" type="datetime-local" />
+                                <span asp-validation-for="EventDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Location" class="form-label">
+                                    <i class="fas fa-map-marker-alt"></i> Konum
+                                </label>
+                                <input asp-for="Location" class="form-control" placeholder="Etkinlik konumu" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ImageUrl" class="form-label">
+                                <i class="fas fa-image"></i> Görsel URL (Opsiyonel)
+                            </label>
+                            <input asp-for="ImageUrl" class="form-control" placeholder="https://example.com/image.jpg" />
+                            <small class="form-text text-muted">
+                                Görsel URL'si girmezseniz varsayılan görsel kullanılacaktır.
+                            </small>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input asp-for="IsActive" class="form-check-input" type="checkbox" checked />
+                                <label asp-for="IsActive" class="form-check-label">
+                                    Aktif (Yayında olsun)
+                                </label>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/Admin/EventsList" class="btn btn-secondary">
+                                <i class="fas fa-times"></i> İptal
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save"></i> Etkinliği Kaydet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

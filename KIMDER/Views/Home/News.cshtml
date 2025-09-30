@@ -1,0 +1,56 @@
+@model IEnumerable<KucukkoyIHL.Models.News>
+
+@{
+    ViewData["Title"] = "Haberler";
+}
+
+<div class="hero-section text-center">
+    <div class="container">
+        <h1><i class="fas fa-newspaper"></i> Haberler</h1>
+        <p class="lead">Okulumuz ve mezunlarımızla ilgili güncel haberler</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var news in Model)
+            {
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        @if (!string.IsNullOrEmpty(news.ImageUrl))
+                        {
+                            <img src="@news.ImageUrl" class="card-img-top" alt="@news.Title" 
+                                 onerror="this.src='https://via.placeholder.com/400x200?text=Haber+Görseli'">
+                        }
+                        else
+                        {
+                            <img src="https://via.placeholder.com/400x200?text=Haber+Görseli" class="card-img-top" alt="@news.Title">
+                        }
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">
+                                <i class="far fa-calendar"></i> @news.CreatedDate.ToString("dd MMMM yyyy")
+                            </span>
+                            <h5 class="card-title">@news.Title</h5>
+                            <p class="card-text">
+                                @(news.Content.Length > 150 ? news.Content.Substring(0, 150) + "..." : news.Content)
+                            </p>
+                            <a href="/Home/NewsDetail/@news.Id" class="btn btn-primary">
+                                <i class="fas fa-book-open"></i> Devamını Oku
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> Henüz haber bulunmamaktadır.
+                </div>
+            </div>
+        }
+    </div>
+</div>
